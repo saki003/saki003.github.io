@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1200" viewBox="0 0 1200 1200">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fbfaf8"/>
+      <stop offset="100%" stop-color="#f3efe9"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="1200" fill="#fbfaf8"/>
+
+  <g transform="translate(0,285)">
+    <rect width="1200" height="630" fill="url(#bg)"/>
+    <rect x="0" y="0" width="14" height="630" fill="#8c2f39"/>
+
+    <text x="86" y="128" font-family="Helvetica, Arial, sans-serif" font-size="21"
+          font-weight="700" letter-spacing="3.4" fill="#8c2f39">
+      ADVANCED CARDIOVASCULAR IMAGING
+    </text>
+
+    <text x="82" y="252" font-family="Georgia, 'Times New Roman', serif" font-size="86"
+          font-weight="600" fill="#1c1b19">
+      Ruben Mora, <tspan fill="#86827a">MD</tspan>
+    </text>
+
+    <rect x="86" y="300" width="76" height="3" fill="#8c2f39"/>
+
+    <text x="86" y="364" font-family="Helvetica, Arial, sans-serif" font-size="29" fill="#5d5a54">
+      Cardiac CT · coronary artery calcium · quantitative
+    </text>
+    <text x="86" y="408" font-family="Helvetica, Arial, sans-serif" font-size="29" fill="#5d5a54">
+      CCTA biomarkers · AI in cardiovascular imaging
+    </text>
+
+    <text x="86" y="524" font-family="Helvetica, Arial, sans-serif" font-size="23" fill="#86827a">
+      The Lundquist Institute at Harbor-UCLA · Torrance, CA
+    </text>
+    <text x="86" y="566" font-family="Helvetica, Arial, sans-serif" font-size="23"
+          font-weight="600" fill="#8c2f39">
+      @RubenMoraMD
+    </text>
+  </g>
+</svg>
