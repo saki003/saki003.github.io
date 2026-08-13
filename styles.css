@@ -1,0 +1,277 @@
+/* Ruben Mora, MD — academic site
+   Plain CSS, no build step, no external fonts or assets. */
+
+:root {
+  --bg:        #fbfaf8;
+  --surface:   #ffffff;
+  --border:    #e2ded7;
+  --text:      #1c1b19;
+  --muted:     #5d5a54;
+  --faint:     #86827a;
+  --accent:    #8c2f39;
+  --accent-soft:#f4e9ea;
+  --shadow:    0 1px 2px rgba(28,27,25,.05), 0 6px 20px rgba(28,27,25,.05);
+  --serif: ui-serif, Georgia, "Iowan Old Style", "Times New Roman", serif;
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, Helvetica, Arial, sans-serif;
+  --max: 62rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg:      #14140f;
+    --surface: #1c1c17;
+    --border:  #33322b;
+    --text:    #ece9e2;
+    --muted:   #a9a49a;
+    --faint:   #837e74;
+    --accent:  #e08c94;
+    --accent-soft:#2c1e20;
+    --shadow:  0 1px 2px rgba(0,0,0,.3), 0 6px 20px rgba(0,0,0,.25);
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 17px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap { max-width: var(--max); margin: 0 auto; padding: 0 1.5rem; }
+
+a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+a:hover { text-decoration-thickness: 2px; }
+
+.skip {
+  position: absolute; left: -999px;
+  background: var(--accent); color: #fff; padding: .6rem 1rem; z-index: 100;
+}
+.skip:focus { left: 1rem; top: 1rem; }
+
+/* ---------- header ---------- */
+
+.site-header {
+  position: sticky; top: 0; z-index: 50;
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: saturate(180%) blur(10px);
+  border-bottom: 1px solid var(--border);
+}
+.site-header nav {
+  max-width: var(--max); margin: 0 auto; padding: .75rem 1.5rem;
+  display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap;
+}
+.brand {
+  font-family: var(--serif); font-weight: 600; font-size: 1.02rem;
+  color: var(--text); text-decoration: none; letter-spacing: .01em;
+}
+.site-header ul {
+  list-style: none; display: flex; gap: 1.25rem;
+  margin: 0 0 0 auto; padding: 0; font-size: .88rem;
+}
+.site-header ul a { color: var(--muted); text-decoration: none; }
+.site-header ul a:hover { color: var(--accent); }
+
+/* ---------- hero ---------- */
+
+.hero { padding: 4.5rem 0 3.5rem; border-bottom: 1px solid var(--border); }
+.hero-grid {
+  display: grid; grid-template-columns: minmax(0,1fr) 15rem; gap: 3rem; align-items: start;
+}
+.eyebrow {
+  margin: 0 0 .5rem; font-size: .78rem; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--accent); font-weight: 600;
+}
+h1 {
+  font-family: var(--serif); font-weight: 600; font-size: clamp(2.4rem, 6vw, 3.4rem);
+  line-height: 1.1; margin: 0 0 1rem; letter-spacing: -.02em;
+}
+h1 .cred { color: var(--faint); font-weight: 400; }
+.lede { font-size: 1.1rem; color: var(--muted); margin: 0 0 1.25rem; max-width: 40rem; }
+.lede strong { color: var(--text); font-weight: 600; }
+
+.affil {
+  list-style: none; margin: 0 0 1.75rem; padding: 0;
+  font-size: .9rem; color: var(--faint);
+}
+.affil li { padding-left: 1rem; position: relative; }
+.affil li::before {
+  content: ""; position: absolute; left: 0; top: .72em;
+  width: 5px; height: 5px; border-radius: 50%; background: var(--border);
+}
+
+.cta-row { display: flex; gap: .75rem; flex-wrap: wrap; margin: 0 0 1.5rem; }
+.btn {
+  display: inline-block; padding: .55rem 1.1rem; border-radius: 6px;
+  border: 1px solid var(--border); background: var(--surface);
+  color: var(--text); text-decoration: none; font-size: .9rem; font-weight: 500;
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+.btn:hover { box-shadow: var(--shadow); transform: translateY(-1px); }
+.btn-primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .btn-primary { color: #1a1013; }
+}
+
+.links {
+  list-style: none; display: flex; flex-wrap: wrap; gap: .4rem 1rem;
+  margin: 0; padding: 0; font-size: .88rem;
+}
+.links a { color: var(--muted); }
+
+.hero-stats {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+  padding: 1.25rem 1.35rem; box-shadow: var(--shadow);
+}
+.hero-stats dl { margin: 0; display: grid; gap: .85rem; }
+.hero-stats dt { font-size: .78rem; color: var(--faint); text-transform: uppercase; letter-spacing: .06em; }
+.hero-stats dd {
+  margin: 0; font-family: var(--serif); font-size: 1.55rem; font-weight: 600; line-height: 1.1;
+}
+.stats-note {
+  margin: 1.15rem 0 0; padding-top: .9rem; border-top: 1px solid var(--border);
+  font-size: .82rem; color: var(--accent); font-weight: 500;
+}
+
+/* ---------- sections ---------- */
+
+section.wrap { padding: 3.75rem 1.5rem; }
+
+h2 {
+  font-family: var(--serif); font-size: 1.9rem; font-weight: 600;
+  margin: 0 0 .5rem; letter-spacing: -.015em;
+}
+h3.sub {
+  font-family: var(--sans); font-size: .8rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .1em; color: var(--faint);
+  margin: 2.5rem 0 1rem; padding-bottom: .5rem; border-bottom: 1px solid var(--border);
+}
+.section-lede { color: var(--muted); margin: 0 0 2rem; max-width: 44rem; }
+
+/* ---------- research cards ---------- */
+
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(17rem,1fr)); gap: 1.1rem; }
+.card {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+  padding: 1.35rem 1.4rem;
+}
+.card h3 {
+  font-family: var(--serif); font-size: 1.08rem; font-weight: 600; margin: 0 0 .55rem;
+}
+.card p { margin: 0; font-size: .92rem; color: var(--muted); }
+
+.cohorts { display: flex; flex-wrap: wrap; gap: .5rem; margin: 0; }
+.cohorts span {
+  font-size: .8rem; font-weight: 600; letter-spacing: .03em;
+  background: var(--accent-soft); color: var(--accent);
+  padding: .28rem .7rem; border-radius: 999px;
+}
+
+/* ---------- publications ---------- */
+
+.pubs { list-style: none; counter-reset: pub; margin: 0; padding: 0; }
+.pubs > li {
+  counter-increment: pub; position: relative;
+  padding: 0 0 1.35rem 2.4rem; margin-bottom: 1.35rem;
+  border-bottom: 1px solid var(--border);
+}
+.pubs > li:last-child { border-bottom: 0; margin-bottom: 0; padding-bottom: 0; }
+.pubs > li::before {
+  content: counter(pub); position: absolute; left: 0; top: .05em;
+  font-family: var(--serif); font-size: .95rem; color: var(--faint);
+  width: 1.6rem; text-align: right;
+}
+.pubs .title { margin: 0 0 .3rem; font-weight: 600; font-size: 1rem; line-height: 1.45; }
+.pubs .authors { margin: 0 0 .25rem; font-size: .88rem; color: var(--muted); }
+.pubs .authors b { color: var(--text); }
+.pubs .venue { margin: 0; font-size: .86rem; color: var(--faint); }
+.pubs.muted .title { font-weight: 500; }
+.pubs.compact > li {
+  font-size: .88rem; color: var(--muted); line-height: 1.55;
+  padding-bottom: .9rem; margin-bottom: .9rem;
+}
+.pubs.compact b { color: var(--text); }
+
+.abstracts { margin-top: 2.5rem; }
+.abstracts > summary {
+  cursor: pointer; list-style: none; padding: .8rem 1.1rem;
+  background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
+  font-size: .9rem; font-weight: 600; display: flex; align-items: center; gap: .5rem;
+}
+.abstracts > summary::-webkit-details-marker { display: none; }
+.abstracts > summary::before { content: "▸"; color: var(--accent); transition: transform .15s ease; }
+.abstracts[open] > summary::before { transform: rotate(90deg); }
+.abstracts > .pubs { margin-top: 1.5rem; padding-left: .25rem; }
+
+/* ---------- talks ---------- */
+
+.talks { list-style: none; margin: 0; padding: 0; }
+.talks li {
+  padding: 0 0 1.15rem 1.15rem; margin-bottom: 1.15rem;
+  border-left: 2px solid var(--border); border-bottom: 1px solid var(--border);
+}
+.talks li:last-child { border-bottom: 0; margin-bottom: 0; padding-bottom: 0; }
+.talks .title { margin: 0 0 .25rem; font-weight: 600; font-size: .98rem; line-height: 1.45; }
+.talks .venue { margin: 0; font-size: .86rem; color: var(--faint); }
+.tag {
+  background: var(--accent-soft); color: var(--accent);
+  font-size: .74rem; font-weight: 700; padding: .12rem .5rem; border-radius: 4px;
+  text-transform: uppercase; letter-spacing: .05em;
+}
+
+/* ---------- about ---------- */
+
+.about-grid { display: grid; grid-template-columns: minmax(0,1.5fr) minmax(0,1fr); gap: 3rem; }
+.about-bio p { margin: 0 0 1.1rem; color: var(--muted); }
+.about-side h3 {
+  font-family: var(--sans); font-size: .78rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: .09em; color: var(--faint); margin: 0 0 .75rem;
+}
+.about-side h3 + * { margin-bottom: 2rem; }
+.timeline, .plain { list-style: none; margin: 0; padding: 0; font-size: .88rem; color: var(--muted); }
+.timeline li, .plain li { margin-bottom: .55rem; line-height: 1.5; }
+.timeline .yr {
+  display: inline-block; min-width: 4.6rem; color: var(--text); font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- contact + footer ---------- */
+
+.contact { border-top: 1px solid var(--border); }
+.contact-links { display: flex; gap: .75rem; flex-wrap: wrap; margin: 0; }
+
+.site-footer {
+  border-top: 1px solid var(--border); padding: 2rem 0 3rem;
+  font-size: .82rem; color: var(--faint);
+}
+.site-footer p { margin: 0 0 .4rem; }
+.site-footer .fine { font-size: .78rem; }
+
+/* ---------- responsive ---------- */
+
+@media (max-width: 860px) {
+  .hero-grid, .about-grid { grid-template-columns: 1fr; gap: 2.25rem; }
+  .hero { padding: 3rem 0 2.5rem; }
+  .hero-stats dl { grid-template-columns: repeat(2,1fr); gap: 1rem; }
+}
+@media (max-width: 560px) {
+  body { font-size: 16px; }
+  .site-header nav { gap: .75rem; }
+  .site-header ul { gap: .9rem; font-size: .82rem; margin-left: 0; width: 100%; }
+  section.wrap { padding: 2.75rem 1.25rem; }
+  .wrap { padding: 0 1.25rem; }
+  .pubs > li { padding-left: 1.9rem; }
+}
+
+@media print {
+  .site-header, .cta-row, .hero-stats, .site-footer .fine { display: none; }
+  body { background: #fff; color: #000; font-size: 11pt; }
+  .abstracts > .pubs { display: block !important; }
+  a { color: #000; text-decoration: none; }
+}

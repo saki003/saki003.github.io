@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep -iE '\\\\.\\(pdf|docx|doc|md|tex|txt\\)$')",
+      "Bash(ls -lt /Users/rubenmora/Documents/Career/RubenMoraCV.pdf /Users/rubenmora/Documents/Career/RubenMoraCV.docx /Users/rubenmora/Documents/Career/RubenMoraCV1.pdf /Users/rubenmora/Downloads/RubenMoraCV*.docx /Users/rubenmora/Downloads/Mora_CV*.docx /Users/rubenmora/Downloads/Mora_CV.pdf /Users/rubenmora/Downloads/RubenMoraCV.pdf 2>/dev/null)",
+      "Bash(mkdir -p assets && cp /Users/rubenmora/Documents/Career/RubenMoraCV.pdf assets/RubenMoraCV.pdf && touch .nojekyll && ls -la assets)",
+      "Bash(python3 -c ' *)"
+    ]
+  }
+}
