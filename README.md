@@ -38,10 +38,34 @@ git remote add origin https://github.com/<your-username>/<your-username>.github.
 4. In the repo: **Settings → Pages → Source: Deploy from a branch → `main` / `(root)`**.
    Live in about a minute.
 
-### Custom domain (optional)
+### Custom domain
 
-Buy a domain, add a `CNAME` file containing just the domain (e.g. `rubenmora.md`), and set
-the DNS records GitHub lists under Settings → Pages.
+Live at **https://saki003.github.io**. The plan is to move to `rubenmoramd.com`.
+
+**Order matters.** Do not commit a `CNAME` file before the domain resolves — GitHub will
+301 every request to the dead domain and the site goes offline entirely. Correct sequence:
+
+1. Register the domain.
+2. At the registrar, create four `A` records for the apex (`@`) pointing to
+   `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`,
+   and a `CNAME` for `www` → `saki003.github.io`.
+3. Wait for DNS to resolve (`dig +short rubenmoramd.com` returns those IPs).
+4. Only then: `echo rubenmoramd.com > CNAME`, commit, push.
+5. Repo → Settings → Pages → set the custom domain, then tick **Enforce HTTPS** once the
+   certificate is issued (can take up to an hour).
+6. Update the four absolute URLs in `index.html` (`og:url`, `og:image`, `twitter:image`,
+   `canonical`) and the JSON-LD `url` from `saki003.github.io` to the new domain.
+
+### Regenerating the social card
+
+`assets/og-card.png` (1200×630) is rendered from `assets/og-card.svg`:
+
+```bash
+cd assets && cp og-card.svg r.svg && qlmanage -t -s 1200 -o . r.svg && sips -c 630 1200 r.svg.png --out og-card.png && rm r.svg r.svg.png
+```
+
+The SVG is authored on a 1200×1200 canvas with the card centred so the crop lands exactly.
+Note: XML comments cannot contain `--`, which silently breaks the render.
 
 ## Before you share the link — fill these in
 
