@@ -68,6 +68,7 @@
     <a class="brand" href="#top">Ruben&nbsp;Mora,&nbsp;MD</a>
     <ul>
       <li><a href="#research">Research</a></li>
+      <li><a href="#projects">Projects</a></li>
       <li><a href="#publications">Publications</a></li>
       <li><a href="#presentations">Talks</a></li>
       <li><a href="#about">About</a></li>
@@ -104,15 +105,21 @@
         <li><a href="mailto:RubenMoraMD@gmail.com">Email</a></li>
       </ul>
     </div>
-    <aside class="hero-stats" aria-label="At a glance">
-      <dl>
-        <div><dt>Peer-reviewed papers</dt><dd>9</dd></div>
-        <div><dt>Under review</dt><dd>4</dd></div>
-        <div><dt>Abstracts &amp; proceedings</dt><dd>17</dd></div>
-        <div><dt>Book chapters</dt><dd>1</dd></div>
-      </dl>
-      <p class="stats-note">SCCT Young Investigator Award Finalist, 2025</p>
-    </aside>
+    <div class="hero-side">
+      <figure class="portrait">
+        <img src="assets/headshot.png" alt="Portrait of Ruben Mora, MD"
+             width="800" height="1000" onerror="this.closest('.portrait').remove()">
+      </figure>
+      <aside class="hero-stats" aria-label="At a glance">
+        <dl>
+          <div><dt>Peer-reviewed papers</dt><dd>9</dd></div>
+          <div><dt>Under review</dt><dd>4</dd></div>
+          <div><dt>Abstracts &amp; proceedings</dt><dd>17</dd></div>
+          <div><dt>Book chapters</dt><dd>1</dd></div>
+        </dl>
+        <p class="stats-note">SCCT Young Investigator Award Finalist, 2025</p>
+      </aside>
+    </div>
   </div>
 </section>
 
@@ -159,6 +166,50 @@
   <p class="cohorts">
     <span>MESA</span><span>STOP</span><span>EKSTROM</span><span>NATURE-CT</span><span>KETO-CTA</span><span>T-PLAQ</span><span>MiHeart</span><span>Institutional CCTA registries</span>
   </p>
+</section>
+
+<section id="projects" class="wrap">
+  <h2>Projects</h2>
+  <p class="section-lede">
+    Tools that put cardiac imaging and cardio-oncology evidence where clinicians actually need it —
+    at the workstation and at the point of care.
+  </p>
+
+  <div class="projects">
+    <article class="project">
+      <div class="project-head">
+        <h3>CCTCore</h3>
+        <p class="project-tag">Open CCTA reference</p>
+      </div>
+      <p class="project-desc">
+        Everything CCTA in one place. A reference wiki with figures, modifiers, and citations; a curated
+        DICOM image atlas with an interactive viewer; calculators for ASCVD risk, Risk-to-Action, MESA,
+        and protocol selection; and pre-formatted reporting templates for standard, abbreviated,
+        post-CABG, and pre-TAVR studies. Built for anyone reading or referring coronary CT.
+      </p>
+      <p class="project-meta">
+        <span>CAD-RADS 2.0</span><span>Pre-TAVR planning</span><span>Risk-to-Action</span><span>Protocol picker</span>
+      </p>
+      <p class="project-link"><a href="https://ccta.up.railway.app/">Open CCTCore →</a></p>
+    </article>
+
+    <article class="project">
+      <div class="project-head">
+        <h3>Cards-Onc COPilot</h3>
+        <p class="project-tag">Point-of-care decision support</p>
+      </div>
+      <p class="project-desc">
+        A clinical decision-support tool from the Computational Cardiology Team that brings
+        cardio-oncology guidelines to the bedside, helping clinicians managing patients with
+        concurrent cardiac and oncologic disease reach the relevant evidence at the moment
+        they need it.
+      </p>
+      <p class="project-meta">
+        <span>Cardio-oncology</span><span>Guideline delivery</span><span>Clinical decision support</span>
+      </p>
+      <p class="project-link"><a href="https://cardsonc.org/">Open Cards-Onc COPilot →</a></p>
+    </article>
+  </div>
 </section>
 
 <section id="publications" class="wrap">

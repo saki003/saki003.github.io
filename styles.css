@@ -125,6 +125,16 @@ h1 .cred { color: var(--faint); font-weight: 400; }
 }
 .links a { color: var(--muted); }
 
+.hero-side { display: grid; gap: 1.25rem; }
+
+.portrait { margin: 0; }
+.portrait img {
+  display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover;
+  object-position: 50% 12%;
+  border-radius: 10px; border: 1px solid var(--border);
+  background: var(--surface); box-shadow: var(--shadow);
+}
+
 .hero-stats {
   background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
   padding: 1.25rem 1.35rem; box-shadow: var(--shadow);
@@ -172,6 +182,34 @@ h3.sub {
   background: var(--accent-soft); color: var(--accent);
   padding: .28rem .7rem; border-radius: 999px;
 }
+
+/* ---------- projects ---------- */
+
+.projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(20rem,1fr)); gap: 1.35rem; }
+.project {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+  padding: 1.6rem 1.65rem; display: flex; flex-direction: column;
+  border-top: 3px solid var(--accent);
+}
+.project-head { margin-bottom: .85rem; }
+.project-head h3 {
+  font-family: var(--serif); font-size: 1.35rem; font-weight: 600; margin: 0 0 .2rem;
+}
+.project-tag {
+  margin: 0; font-size: .74rem; font-weight: 700; letter-spacing: .09em;
+  text-transform: uppercase; color: var(--accent);
+}
+.project-desc { margin: 0 0 1.1rem; font-size: .93rem; color: var(--muted); }
+.project-meta {
+  display: flex; flex-wrap: wrap; gap: .4rem; margin: 0 0 1.25rem;
+}
+.project-meta span {
+  font-size: .74rem; font-weight: 600; color: var(--faint);
+  border: 1px solid var(--border); padding: .2rem .6rem; border-radius: 999px;
+}
+.project-link { margin: auto 0 0; font-size: .92rem; font-weight: 600; }
+.project-link a { text-decoration: none; }
+.project-link a:hover { text-decoration: underline; }
 
 /* ---------- publications ---------- */
 
@@ -259,6 +297,7 @@ h3.sub {
   .hero-grid, .about-grid { grid-template-columns: 1fr; gap: 2.25rem; }
   .hero { padding: 3rem 0 2.5rem; }
   .hero-stats dl { grid-template-columns: repeat(2,1fr); gap: 1rem; }
+  .portrait img { max-width: 13rem; }
 }
 @media (max-width: 560px) {
   body { font-size: 16px; }
